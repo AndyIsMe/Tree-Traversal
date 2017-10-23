@@ -130,11 +130,121 @@ StringNode nodeAdam = {&nodeAbraham,&nodeNoah,"Adam"};
 
 
 
-void setUp(void){}
+int in0rderGoldenValues[] = {1, 2, 3, 4, 5, 7, 10, 15, 20, 24, 25, 28};
+
+int Pre0rderGoldenValues[] = {10, 4, 2, 1, 3, 5, 7, 20, 15, 25, 24, 28};
+
+int Post0rderGoldenValues[] = {1, 3, 2, 7, 5, 4, 15, 24, 28, 25, 20, 10};
+
+
+
+int curIndex;
+
+int indexLimit;
+
+int *goldenIntValues;
+
+void setUp(void){
+
+  curIndex = 0;
+
+}
 
 
 
 void tearDown(void){}
+
+
+
+void verifyIntegers(Node *node){
+
+  char error[1028];
+
+  if(goldenIntValues[curIndex] != node->data){
+
+    sprintf(error, "At index %d,expected %d but was %d",curIndex,goldenIntValues[curIndex],node->data);
+
+    UnityFail( ((error)), (UNITY_UINT)(43));
+
+  }
+
+  if(curIndex >= indexLimit){
+
+    sprintf(error, "The number of values is greater than the number of golden values (%d) ",indexLimit);
+
+    UnityFail( ((error)), (UNITY_UINT)(47));
+
+  }
+
+    curIndex++;
+
+}
+
+
+
+void test__in0rderTreeTraversal_is_correct_order(void){
+
+  goldenIntValues = in0rderGoldenValues;
+
+  indexLimit = sizeof(in0rderGoldenValues)/sizeof(int);
+
+  _in0rderTreeTraversal(&node10,verifyIntegers);
+
+  if(curIndex < indexLimit){
+
+    char error[1028];
+
+    sprintf(error, "The number of values is lesser than the number of golden values (%d) ",indexLimit);
+
+    UnityFail( ((error)), (UNITY_UINT)(59));
+
+  }
+
+}
+
+
+
+void test__Post0rderTreeTraversal_is_correct_order(void){
+
+  goldenIntValues = Post0rderGoldenValues;
+
+  indexLimit = sizeof(Post0rderGoldenValues)/sizeof(int);
+
+  _Post0rderTreeTraversal(&node10,verifyIntegers);
+
+  if(curIndex < indexLimit){
+
+    char error[1028];
+
+    sprintf(error, "The number of values is lesser than the number of golden values (%d) ",indexLimit);
+
+    UnityFail( ((error)), (UNITY_UINT)(70));
+
+  }
+
+}
+
+
+
+void test__Pre0rderTreeTraversal_is_correct_order(void){
+
+  goldenIntValues = Pre0rderGoldenValues;
+
+  indexLimit = sizeof(Pre0rderGoldenValues)/sizeof(int);
+
+  _Pre0rderTreeTraversal(&node10,verifyIntegers);
+
+  if(curIndex < indexLimit){
+
+    char error[1028];
+
+    sprintf(error, "The number of values is lesser than the number of golden values (%d) ",indexLimit);
+
+    UnityFail( ((error)), (UNITY_UINT)(81));
+
+  }
+
+}
 
 
 
@@ -157,5 +267,29 @@ void test__in0rderTreeTraversal_eith_printDecoratedInteger(void){
 void test__in0rderTreeTraversal_with_printString(void){
 
   _in0rderTreeTraversal((Node *)&nodeAdam,printString);
+
+}
+
+
+
+void test_in0rderTreeTraversal(void){
+
+  in0rderTreeTraversal(&node10);
+
+}
+
+
+
+void test_Pre0rderTreeTraversal(void){
+
+  Pre0rderTreeTraversal(&node10);
+
+}
+
+
+
+void test_Post0rderTreeTraversal(void){
+
+  Post0rderTreeTraversal(&node10);
 
 }

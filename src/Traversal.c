@@ -1,7 +1,21 @@
 #include "Traversal.h"
 #include <stdio.h>
 
+void _Post0rderTreeTraversal(Node *node, void(*print)(Node *node)){
+  if(node->left !=NULL)
+  _Post0rderTreeTraversal(node->left,print);
+  if(node->right !=NULL)
+  _Post0rderTreeTraversal(node->right,print);
+  print(node);
+}
 
+void _Pre0rderTreeTraversal(Node *node, void(*print)(Node *node)){
+  print(node);
+  if(node->left !=NULL)
+  _Pre0rderTreeTraversal(node->left,print);
+  if(node->right !=NULL)
+  _Pre0rderTreeTraversal(node->right,print);
+}
 
 
 void _in0rderTreeTraversal(Node *node, void(*print)(Node *node)){
