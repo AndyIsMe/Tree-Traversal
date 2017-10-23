@@ -1,0 +1,25 @@
+---
+:source:
+  :path: test
+  :file: test_Traversal.c
+:successes:
+- :test: test_in0rderTreeTraversal
+  :line: 21
+  :message: ''
+- :test: test_Pre0rderTreeTraversal
+  :line: 25
+  :message: ''
+- :test: test_Post0rderTreeTraversal
+  :line: 29
+  :message: ''
+:failures: []
+:ignores: []
+:counts:
+  :total: 3
+  :passed: 3
+  :failed: 0
+  :ignored: 0
+:stdout:
+- '1, 2, 3, 4, 5, 7, 10, 15, 20, 24, 25, 28, '
+- '10, 4, 2, 1, 3, 5, 7, 20, 15, 25, 24, 28, '
+- '1, 3, 2, 7, 5, 4, 15, 24, 28, 25, 20, 10, '
