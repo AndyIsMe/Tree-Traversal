@@ -17,7 +17,7 @@
 :release_build:
   :use_assembly: false
   :artifacts: []
-  :output: TreeTraversal.exe
+  :output: Avl.exe
 :paths:
   :test:
   - "+:test/**"
