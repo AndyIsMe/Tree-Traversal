@@ -1,5 +1,6 @@
 #include "unity.h"
 #include "Traversal.h"
+#include "NodePrint.h"
 
 Node node1 = {NULL, NULL, 1};
 Node node3 = {NULL, NULL, 3};
@@ -14,10 +15,30 @@ Node node4 = {&node2, &node5, 4};
 Node node20 = {&node15, &node25, 20};
 Node node10 = {&node4, &node20, 10};
 
+StringNode nodeAli = {NULL,NULL,"Ali"};
+StringNode nodeAbu = {NULL,NULL,"Abu"};
+StringNode nodeDavid = {NULL,NULL,"David"};
+StringNode nodeSteven = {NULL,NULL,"Steven"};
+StringNode nodeAbraham = {&nodeAli,&nodeAbu,"Abraham"};
+StringNode nodeNoah = {&nodeDavid,&nodeSteven,"Noah"};
+StringNode nodeAdam = {&nodeAbraham,&nodeNoah,"Adam"};
+
 void setUp(void){}
 
 void tearDown(void){}
 
+void test__in0rderTreeTraversal_with_printInteger(void){
+  _in0rderTreeTraversal(&node10,printInteger);
+}
+
+void test__in0rderTreeTraversal_eith_printDecoratedInteger(void){
+  _in0rderTreeTraversal(&node10,printDecoratedInteger);
+}
+
+void test__in0rderTreeTraversal_with_printString(void){
+  _in0rderTreeTraversal((Node *)&nodeAdam,printString);
+}
+/*
 void test_in0rderTreeTraversal(void){
   in0rderTreeTraversal(&node10);
 }
@@ -28,4 +49,4 @@ void test_Pre0rderTreeTraversal(void){
 
 void test_Post0rderTreeTraversal(void){
   Post0rderTreeTraversal(&node10);
-}
+}*/

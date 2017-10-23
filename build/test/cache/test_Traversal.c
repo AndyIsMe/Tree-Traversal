@@ -1,4 +1,5 @@
 #include "build/temp/_test_Traversal.c"
+#include "NodePrint.h"
 #include "Traversal.h"
 #include "unity.h"
 
@@ -81,6 +82,54 @@ Node node10 = {&node4, &node20, 10};
 
 
 
+StringNode nodeAli = {
+
+                     ((void *)0)
+
+                         ,
+
+                          ((void *)0)
+
+                              ,"Ali"};
+
+StringNode nodeAbu = {
+
+                     ((void *)0)
+
+                         ,
+
+                          ((void *)0)
+
+                              ,"Abu"};
+
+StringNode nodeDavid = {
+
+                       ((void *)0)
+
+                           ,
+
+                            ((void *)0)
+
+                                ,"David"};
+
+StringNode nodeSteven = {
+
+                        ((void *)0)
+
+                            ,
+
+                             ((void *)0)
+
+                                 ,"Steven"};
+
+StringNode nodeAbraham = {&nodeAli,&nodeAbu,"Abraham"};
+
+StringNode nodeNoah = {&nodeDavid,&nodeSteven,"Noah"};
+
+StringNode nodeAdam = {&nodeAbraham,&nodeNoah,"Adam"};
+
+
+
 void setUp(void){}
 
 
@@ -89,24 +138,24 @@ void tearDown(void){}
 
 
 
-void test_in0rderTreeTraversal(void){
+void test__in0rderTreeTraversal_with_printInteger(void){
 
-  in0rderTreeTraversal(&node10);
-
-}
-
-
-
-void test_Pre0rderTreeTraversal(void){
-
-  Pre0rderTreeTraversal(&node10);
+  _in0rderTreeTraversal(&node10,printInteger);
 
 }
 
 
 
-void test_Post0rderTreeTraversal(void){
+void test__in0rderTreeTraversal_eith_printDecoratedInteger(void){
 
-  Post0rderTreeTraversal(&node10);
+  _in0rderTreeTraversal(&node10,printDecoratedInteger);
+
+}
+
+
+
+void test__in0rderTreeTraversal_with_printString(void){
+
+  _in0rderTreeTraversal((Node *)&nodeAdam,printString);
 
 }

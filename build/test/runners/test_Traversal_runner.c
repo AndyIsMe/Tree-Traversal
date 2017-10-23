@@ -30,9 +30,9 @@ char* GlobalOrderError;
 /*=======External Functions This Runner Calls=====*/
 extern void setUp(void);
 extern void tearDown(void);
-extern void test_in0rderTreeTraversal(void);
-extern void test_Pre0rderTreeTraversal(void);
-extern void test_Post0rderTreeTraversal(void);
+extern void test__in0rderTreeTraversal_with_printInteger(void);
+extern void test__in0rderTreeTraversal_eith_printDecoratedInteger(void);
+extern void test__in0rderTreeTraversal_with_printString(void);
 
 
 /*=======Test Reset Option=====*/
@@ -48,9 +48,9 @@ void resetTest(void)
 int main(void)
 {
   UnityBegin("test_Traversal.c");
-  RUN_TEST(test_in0rderTreeTraversal, 21);
-  RUN_TEST(test_Pre0rderTreeTraversal, 25);
-  RUN_TEST(test_Post0rderTreeTraversal, 29);
+  RUN_TEST(test__in0rderTreeTraversal_with_printInteger, 30);
+  RUN_TEST(test__in0rderTreeTraversal_eith_printDecoratedInteger, 34);
+  RUN_TEST(test__in0rderTreeTraversal_with_printString, 38);
 
   return (UnityEnd());
 }
